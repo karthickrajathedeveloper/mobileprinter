@@ -573,7 +573,7 @@ button, input, select, textarea {
 }
 
 .phone-widget {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 8px;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
@@ -831,7 +831,7 @@ button, input, select, textarea {
   position: absolute;
   top: 15px;
   right: 5%;
-  background: var(--white);
+  background: var(--card-bg);
   color: var(--neutral-dark);
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -1100,7 +1100,7 @@ button, input, select, textarea {
 }
 
 .feature-tab-item {
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--neutral-border);
   border-radius: 12px;
   padding: 1.25rem;
@@ -1633,7 +1633,7 @@ button, input, select, textarea {
 }
 
 .industry-card {
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--neutral-border);
   border-radius: 12px;
   padding: 1.5rem;
