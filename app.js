@@ -1,5 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Theme Toggle Logic
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const moonIcon = themeToggleBtn.querySelector('.moon-icon');
+  const sunIcon = themeToggleBtn.querySelector('.sun-icon');
+
+  // Check user preference or stored preference
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    moonIcon.style.display = 'none';
+    sunIcon.style.display = 'block';
+  } else if (currentTheme === 'light') {
+    document.body.classList.remove('dark-theme');
+    moonIcon.style.display = 'block';
+    sunIcon.style.display = 'none';
+  } else {
+    // Match system preferences
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-theme');
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'block';
+    }
+  }
+
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+    
+    if (isDark) {
+      localStorage.setItem('theme', 'dark');
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'block';
+    } else {
+      localStorage.setItem('theme', 'light');
+      moonIcon.style.display = 'block';
+      sunIcon.style.display = 'none';
+    }
+  });
+
   // 1. Header Scroll Styling
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {

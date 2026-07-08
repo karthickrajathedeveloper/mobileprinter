@@ -38,6 +38,25 @@
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Theme Defaults (Light) */
+  --body-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --input-bg: #F8FAFC;
+}
+
+body.dark-theme {
+  --neutral-dark: #F8FAFC;
+  --neutral-light: #1E293B;
+  --neutral-body: #CBD5E1;
+  --neutral-border: #334155;
+  --neutral-muted: #94A3B8;
+
+  --body-bg: #0F172A;
+  --card-bg: #1E293B;
+  --header-bg: rgba(15, 23, 42, 0.85);
+  --input-bg: #0F172A;
 }
 
 /* Reset */
@@ -56,9 +75,10 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--neutral-body);
-  background-color: var(--white);
+  background-color: var(--body-bg);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -255,7 +275,7 @@ button, input, select, textarea {
 }
 
 .header.scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--header-bg);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: var(--shadow-sm);
@@ -358,7 +378,7 @@ button, input, select, textarea {
     right: -100%;
     width: 280px;
     height: 100vh;
-    background-color: var(--white);
+    background-color: var(--body-bg);
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     flex-direction: column;
     align-items: flex-start;
@@ -885,7 +905,7 @@ button, input, select, textarea {
 }
 
 .why-card {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 2.5rem 2rem;
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
@@ -989,7 +1009,7 @@ button, input, select, textarea {
 .app-screen-iframe {
   width: 100%;
   height: 100%;
-  background: var(--white);
+  background: var(--body-bg);
   padding: 2rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -1155,7 +1175,7 @@ button, input, select, textarea {
 }
 
 .report-card {
-  background: var(--white);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: var(--shadow-md);
@@ -1223,7 +1243,7 @@ button, input, select, textarea {
 }
 
 .chart-panel {
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--neutral-border);
   border-radius: 16px;
   padding: 2rem;
@@ -1259,7 +1279,7 @@ button, input, select, textarea {
 }
 
 .product-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--neutral-border);
@@ -1672,7 +1692,7 @@ button, input, select, textarea {
 
 .love-card {
   text-align: center;
-  background: var(--white);
+  background: var(--card-bg);
   padding: 2.5rem 1.5rem;
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
@@ -1731,7 +1751,7 @@ button, input, select, textarea {
 }
 
 .testimonial-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--neutral-border);
@@ -1833,7 +1853,7 @@ button, input, select, textarea {
 }
 
 .faq-item {
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--neutral-border);
   border-radius: 12px;
   overflow: hidden;
@@ -1960,7 +1980,7 @@ button, input, select, textarea {
 
 /* Contact Form Card */
 .contact-form-card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--shadow-premium);
   border: 1px solid var(--neutral-border);
@@ -2003,7 +2023,7 @@ button, input, select, textarea {
 }
 .form-control:focus {
   border-color: var(--secondary);
-  background: var(--white);
+  background: var(--body-bg);
   box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.1);
 }
 
@@ -2028,7 +2048,7 @@ button, input, select, textarea {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--secondary);
-  background: var(--white);
+  background: var(--card-bg);
 }
 
 textarea.form-control {
@@ -2058,7 +2078,7 @@ textarea.form-control {
   pointer-events: auto;
 }
 .form-success-modal {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 3rem 2.5rem;
   max-width: 450px;
@@ -2237,4 +2257,51 @@ textarea.form-control {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(11, 61, 145, 0.05);
+}
+.theme-toggle-btn:hover {
+  background-color: rgba(11, 61, 145, 0.1);
+  transform: scale(1.05);
+}
+body.dark-theme .theme-toggle-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-theme .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--primary);
+  transition: var(--transition-fast);
+}
+body.dark-theme .theme-icon {
+  fill: var(--secondary-light);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+@media (max-width: 991px) {
+  .nav-actions {
+    margin-right: 1.5rem;
+  }
 }
