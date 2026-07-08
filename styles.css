@@ -296,6 +296,10 @@ button, input, select, textarea {
   font-size: 1.5rem;
   font-family: var(--font-headings);
   color: var(--primary);
+  transition: color var(--transition-normal);
+}
+body.dark-theme .logo {
+  color: var(--neutral-dark);
 }
 
 .logo-icon {
@@ -309,6 +313,8 @@ button, input, select, textarea {
   align-items: center;
   gap: 2rem;
   list-style: none;
+  margin-left: auto;
+  margin-right: 2rem;
 }
 
 .nav-link {
@@ -385,6 +391,8 @@ button, input, select, textarea {
     padding: 6rem 2rem 2rem 2rem;
     transition: var(--transition-normal);
     z-index: 1000;
+    margin-left: 0;
+    margin-right: 0;
   }
   
   .nav-menu.active {
@@ -2298,10 +2306,10 @@ body.dark-theme .theme-icon {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-left: auto;
 }
 @media (max-width: 991px) {
   .nav-actions {
+    margin-left: auto;
     margin-right: 1.5rem;
   }
 }
